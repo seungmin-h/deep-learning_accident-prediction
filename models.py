@@ -13,17 +13,13 @@ from tf.keras.optimizers import SGD
 
 
 def my_classification_model(my_units, my_dim, lr):
-    model = Sequential()
+    
+    model=Sequential()
     
     model.add(Dense(units = int(my_units),
-                    input_dim = int(my_dim)*int(my_dim),
+                    input_dim = (int(my_dim)*int(my_dim)),
                     activation = 'relu'))
-    # ...
     
-    return model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=lr))
-
-def my_regression_model(my_units, my_dim, lr):
-    model = Sequential()
+    model.add(Activation('softmax'))
     
-    # ...
-    return model.compile(loss='mean_squared_error', optimizer=SGD(lr=lr))
+    return model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=lr), metrics=['accuracy'])
