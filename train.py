@@ -43,15 +43,15 @@ x_train, x_valid, y_train, y_valid = train_test_split() ###
 
 
 # 파라미터, 최적화 함수 설정
-#my_units = 32
 my_dim = 28
 lr = 0.001
+batch_size = 64
 
 # 모델 초기화
-my_model = my_regression_model(opt.units, my_dim, lr)
+my_model = my_classification_model(opt.units, my_dim, lr)
 
 # 학습 시작
-my_model.fit() ###
+my_model.fit(x_train, y_train, batch_size=) ###
 print("\nAccuracy: {:.3f}".format(model.evaluate()[1])) ## 텐서플로우 로거 대체
 
 # 체크포인트 등 상세 디자인 생략
